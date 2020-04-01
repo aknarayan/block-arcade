@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 693796430}
   - component: {fileID: 693796429}
   m_Layer: 5
-  m_Name: Move 350
+  m_Name: Finish Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -512,7 +512,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MOVE 350 METRES
+  m_Text: 'FINISH LINE: 350 METRES'
 --- !u!222 &693796430
 CanvasRenderer:
   m_ObjectHideFlags: 0
