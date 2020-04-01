@@ -7,6 +7,11 @@ public class Score : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-    scoreText.text = player.position.z.ToString("0");        
+    int score = (int)player.position.z;
+    if (score >= 350) {
+      scoreText.text = "350";
+    } else {
+      scoreText.text = score.ToString();
+    }
   }
 }
