@@ -16,6 +16,13 @@ public class PlayerMovement : MonoBehaviour {
     isGrounded = false;
   }
 
+  private void Update() {
+    if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
+      rb.AddForce(upwardsForce * Vector3.up, ForceMode.Impulse);
+      isGrounded = false;
+    }
+  }
+
   void FixedUpdate() {
     rb.AddForce(0, 0, forwardForce * Time.deltaTime);
 
@@ -23,9 +30,6 @@ public class PlayerMovement : MonoBehaviour {
       rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
     } else if (Input.GetKey(KeyCode.A)) {
       rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-    } else if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
-      rb.AddForce(upwardsForce * Vector3.up, ForceMode.Impulse);
-      isGrounded = false;
     }
 
     if (rb.position.y < -1f) {
