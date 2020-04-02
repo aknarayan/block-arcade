@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour {
   public GameObject completeLevelUI;
   public Button pauseButton;
   public Button playButton;
+  public Text levelText;
+
+  private void Start() {
+    levelText.text += (SceneManager.GetActiveScene().buildIndex - 1).ToString();
+  }
 
   public void CompleteLevel() {
     completeLevelUI.SetActive(true);
