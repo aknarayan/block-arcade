@@ -358,7 +358,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MOVE RIGHT = D
+  m_Text: MOVE RIGHT = D / RIGHT ARROW
 --- !u!222 &590382433
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -435,7 +435,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MOVE LEFT = A
+  m_Text: MOVE LEFT = A / LEFT ARROW
 --- !u!222 &615043948
 CanvasRenderer:
   m_ObjectHideFlags: 0

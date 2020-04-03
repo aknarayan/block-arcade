@@ -26,9 +26,9 @@ public class PlayerMovement : MonoBehaviour {
   void FixedUpdate() {
     rb.AddForce(0, 0, forwardForce * Time.deltaTime);
 
-    if (Input.GetKey(KeyCode.D)) {
+    if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
       rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-    } else if (Input.GetKey(KeyCode.A)) {
+    } else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
       rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
     }
 
