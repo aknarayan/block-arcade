@@ -44,4 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restartDelay: 1.5
+  collisionDelay: 0.5
   completeLevelUI: {fileID: 0}
+  pauseButton: {fileID: 0}
+  playButton: {fileID: 0}
+  levelText: {fileID: 0}
+  collisionPanel: {fileID: 0}

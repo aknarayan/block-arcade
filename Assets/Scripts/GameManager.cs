@@ -5,13 +5,17 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
   private bool gameHasEnded = false;
+  private bool collisionsOn;
   public float restartDelay = 1.0f;
+  public float collisionDelay = 0.5f;
   public GameObject completeLevelUI;
   public Button pauseButton;
   public Button playButton;
   public Text levelText;
+  public RectTransform collisionPanel;
 
   private void Start() {
+    collisionsOn = true;
     levelText.text += (SceneManager.GetActiveScene().buildIndex - 1).ToString();
   }
 
@@ -19,9 +23,21 @@ public class GameManager : MonoBehaviour {
     completeLevelUI.SetActive(true);
   }
 
+  public void Collide() {
+    if (collisionsOn) {
+      collisionPanel.GetComponent<Image>().gameObject.SetActive(true);
+      Invoke("hideCollisionPanel", collisionDelay);
+      collisionsOn = false;
+    }
+  }
+
+  private void hideCollisionPanel() {
+    collisionPanel.GetComponent<Image>().gameObject.SetActive(false);
+  }
+
   public void EndGame() {
     if (!gameHasEnded) {
-      gameHasEnded = true;
+      gameHasEnded = true;   
       Invoke("Restart", restartDelay);
     }
   }

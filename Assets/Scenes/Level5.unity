@@ -510,6 +510,11 @@ PrefabInstance:
       propertyPath: levelText
       value: 
       objectReference: {fileID: 258103583}
+    - target: {fileID: 5231459643112196645, guid: 981a73cea5d7a6444aaca9018e7b24de,
+        type: 3}
+      propertyPath: collisionPanel
+      value: 
+      objectReference: {fileID: 258103584}
     - target: {fileID: 5231459643112196646, guid: 981a73cea5d7a6444aaca9018e7b24de,
         type: 3}
       propertyPath: m_Name
@@ -734,6 +739,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &258103584 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 880025661483552694, guid: a2d6f22537ff4d94ab96b2114d62bfeb,
+    type: 3}
+  m_PrefabInstance: {fileID: 258103579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &269385865
 PrefabInstance:
   m_ObjectHideFlags: 0
