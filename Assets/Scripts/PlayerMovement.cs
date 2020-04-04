@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour {
   public float sidewaysForce = 500f;
   public float upwardsForce = 5f;
   private bool isGrounded;
+  private bool movementEnabled;
 
   private void OnCollisionStay(Collision collision) {
     isGrounded = true;
@@ -21,9 +22,23 @@ public class PlayerMovement : MonoBehaviour {
       rb.AddForce(upwardsForce * Vector3.up, ForceMode.Impulse);
       isGrounded = false;
     }
+
+    if (rb.position.x < -10 || rb.position.x > 10 || rb.position.y < -1.5f) {
+      movementEnabled = false;
+    } else {
+      movementEnabled = true;
+    }
   }
 
   void FixedUpdate() {
+    if (rb.position.y < -1f) {
+      FindObjectOfType<GameManager>().EndGame();
+    }
+
+    if (!movementEnabled) {
+      return;
+    }
+
     rb.AddForce(0, 0, forwardForce * Time.deltaTime);
 
     if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
@@ -32,9 +47,7 @@ public class PlayerMovement : MonoBehaviour {
       rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
     }
 
-    if (rb.position.y < -1f) {
-      FindObjectOfType<GameManager>().EndGame();
-    }
+
 
   }
 }
