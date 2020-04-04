@@ -49,12 +49,14 @@ public class GameManager : MonoBehaviour {
   public void PauseGame() {
     pauseButton.gameObject.SetActive(false);
     playButton.gameObject.SetActive(true);
+    FindObjectOfType<AudioManager>().Pause("Theme");
     Time.timeScale = 0;
   }
 
   public void ResumeGame() {
     pauseButton.gameObject.SetActive(true);
     playButton.gameObject.SetActive(false);
+    FindObjectOfType<AudioManager>().Resume("Theme");
     Time.timeScale = 1;
   }
 
