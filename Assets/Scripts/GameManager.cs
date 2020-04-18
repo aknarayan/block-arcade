@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 
   private bool gameHasEnded = false;
   private bool collisionsOn;
+  private bool paused = false;
   public float restartDelay = 1.0f;
   public float collisionDelay = 0.5f;
   public GameObject completeLevelUI;
@@ -17,6 +18,14 @@ public class GameManager : MonoBehaviour {
   private void Start() {
     collisionsOn = true;
     levelText.text += (SceneManager.GetActiveScene().buildIndex - 1).ToString();
+  }
+
+  private void Update() {
+    if (!paused && Input.GetKeyDown(KeyCode.Escape)) {
+      PauseGame();
+    } else if (paused && Input.GetKeyDown(KeyCode.Space)) {
+      ResumeGame();
+    }
   }
 
   public void CompleteLevel() {
@@ -51,6 +60,7 @@ public class GameManager : MonoBehaviour {
     playButton.gameObject.SetActive(true);
     FindObjectOfType<AudioManager>().Pause("Theme");
     Time.timeScale = 0;
+    paused = true;
   }
 
   public void ResumeGame() {
@@ -58,6 +68,7 @@ public class GameManager : MonoBehaviour {
     playButton.gameObject.SetActive(false);
     FindObjectOfType<AudioManager>().Resume("Theme");
     Time.timeScale = 1;
+    paused = false;
   }
 
 }
